@@ -7,5 +7,5 @@ html=bs(page,'html.parser')
 #print(html)
 titre=html.find_all('td',{'class':'jobLabel'})
 
-for element in tittre :
+for element in titre :
     print (element.get_text())
