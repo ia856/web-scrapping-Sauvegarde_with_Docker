@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup as bs
 from urllib.request import Request, urlopen
-from pandas as pd
+import pandas as pd
 
 url="https://www.sfds.asso.fr/fr/n/506-consulter_les_offres_demploi/?jedu=MASTER&jcon=&jp=3"
 page=urlopen(url)
@@ -45,6 +45,6 @@ dfJobs=pd.DataFrame({
     'TITRE_OFFRE':titre_offre,
     'DATE_OFFRE':date_offre,
     'RESUME_OFFRE':resume_offre
-
 })
 dfJobs.to_csv('jobs.csv')
+dfJobs.head()
