@@ -32,13 +32,13 @@ for job in allJobs:
 
     
 # Print all Titles Jobs
-print(titre_offre)
+#print(titre_offre)
 
 # Print all Date Pub
-print(date_offre)
+#print(date_offre)
 
 # Print all Resume
-print(resume_offre)
+#print(resume_offre)
 
 
 dfJobs=pd.DataFrame({
@@ -46,5 +46,14 @@ dfJobs=pd.DataFrame({
     'DATE_OFFRE':date_offre,
     'RESUME_OFFRE':resume_offre
 })
-dfJobs.to_csv('jobs.csv')
-dfJobs.head()
+#dfJobs.to_csv('jobs.csv')
+
+# create sqlalchemy engine
+user='root'
+passw='supersecret'
+host='localhost' # either localhost or ip e.g? '172.17.0.2' or hostname adress
+port=3307
+database='jobs_scraping'
+
+engine=create_engine('mysql+pymysql://' + user + ':' + passw + '@' + host + ':' + str(port) + '/' + database , echo=False)
+dfJobs.to_sql('jobs' , con=engine, if_exists = 'append' , index = False, chunksize = 1000)
