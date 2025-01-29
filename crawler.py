@@ -52,7 +52,7 @@ dfJobs=pd.DataFrame({
 user='root'
 passw='supersecret'
 host='localhost' # either localhost or ip e.g? '172.17.0.2' or hostname adress
-port=3306
+port=3307
 database='jobs_scraping'
 
 engine=create_engine('mysql+pymysql://' + user + ':' + passw + '@' + host + ':' + str(port) + '/' + database , echo=False)
