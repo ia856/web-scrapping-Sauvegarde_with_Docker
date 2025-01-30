@@ -52,7 +52,7 @@ dfJobs=pd.DataFrame({
 # create sqlalchemy engine
 user='root'
 passw='supersecret'
-host='localhost' # either localhost or ip e.g? '172.17.0.2' or hostname adress
+host='host.docker.internal' # either localhost or ip e.g? '172.17.0.2' or hostname adress
 port=3307
 database='jobs_scraping'
 
