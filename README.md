@@ -1,4 +1,4 @@
-## Web Scrapping avec python & Ingestion de données avec Docker dnas MYSQL
+## Web Scrapping avec python & Ingestion de données avec Docker dans MYSQL
 
 Mise en place un système automatisé de collecte d'offres d'emploi, avec un stockage structuré dans une base de données MySQL, le tout orchestré à l'aide de Docker.
 
