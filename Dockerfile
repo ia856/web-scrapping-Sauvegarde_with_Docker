@@ -1,12 +1,11 @@
-# This files define the docker container that will contain the Crawler app . 
-# From the source python image
+# Ce fichier définit le docker container qui va contenir le Crawler app . 
+# L'image de python
 FROM python:3.6-slim
-# Identify maintainer
-LABEL maintainer="diallomouhawa97@gmail.com"
-# Set the default working directory
+# ILe maintainer de l'image
+LABEL maintainer="diallomouhawa97@"
+# Le répertoire de travail dans le conteneur
 WORKDIR /app/
 COPY  crawler.py requirements.txt /app/
 RUN pip install -r requirements.txt
-CMD [ "python","./crawler.py" ]
-# When the container starts, run this
+# La commande à éxécuter lorsque le conteneur démarre
 ENTRYPOINT [ "python","./crawler.py" ]

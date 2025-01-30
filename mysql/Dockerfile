@@ -1,6 +1,5 @@
-# Derived from official my sql image (ourb base image)
-FROM mysql
-# Add a database of the sql-scripts/ directory to your image
-# All scripts in docker-entrypoint-initdb.d/ are automatically
-# Executed during container startup
+# L'image de MysQL
+FROM mysql:8.0
+
+# Copy les scrippts SQL dans le répertoire de démarrage de MySQL
 COPY ./sql-scripts /docker-entrypoint-initdb.d/

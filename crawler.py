@@ -49,11 +49,12 @@ dfJobs=pd.DataFrame({
 })
 #dfJobs.to_csv('jobs.csv')
 
-# create sqlalchemy engine
+# Création de sqlalchemy engine
 user='root'
 passw='supersecret'
-host='host.docker.internal' # either localhost or ip e.g? '172.17.0.2' or hostname adress
-port=3307
+# host='172.17.0.1' 
+host= 'mysql'
+port=3306
 database='jobs_scraping'
 
 engine=create_engine('mysql+pymysql://' + user + ':' + passw + '@' + host + ':' + str(port) + '/' + database , echo=False)

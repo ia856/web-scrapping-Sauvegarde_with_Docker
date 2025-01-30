@@ -1,0 +1,35 @@
+
+
+services:
+  # Service pour MySQL
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: supersecret
+      MYSQL_DATABASE: jobs_scraping
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./sql-scripts:/docker-entrypoint-initdb.d  # Lien vers les scripts SQL
+
+
+ # Les services pour le scrapping
+  crawler_app:
+    build: .
+    container_name: crawler_app
+    depends_on:
+      - mysql  # L'app attend que mysql soit prêt
+    environment: # Ça c'est l'environnement de mysql
+      - MYSQL_HOST:mysql
+      - MYSQL_PORT:3306
+      - MYSQL_USER:root
+      - MYSQL_PASSWORD:supersecret
+      - MYSQL_DB=jobs_scraping
+    ports:
+      - "5000:5000"
+    command: ["sh", "-c", "sleep 30 && python ./crawler.py"]
+
+volumes:
+  mysql_data:
