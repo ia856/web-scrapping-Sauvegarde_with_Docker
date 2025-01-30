@@ -1,3 +1,4 @@
+from sqlalchemy import create_engine
 from bs4 import BeautifulSoup as bs
 from urllib.request import Request, urlopen
 import pandas as pd
